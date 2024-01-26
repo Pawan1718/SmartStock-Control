@@ -1,0 +1,15 @@
+﻿<!-- _CategorySidebar.cshtml -->
+<div class="sidebar">
+    <a class="active" href="#home">Products</a>
+    <a asp-action="AddCategory" asp-controller="Categories">Add Category</a>
+    <a asp-action="ManageCategories" asp-controller="Categories">Manage Category</a>
+    <a asp-action="CategoryList" asp-controller="Categories">Category List</a>
+
+  <hr />
+    <a asp-action="AddProducts" asp-controller="Products">Add Product</a>
+    <a asp-action="ManageProducts" asp-controller="Products">Manage Product</a>
+    <a asp-action="ListProducts" asp-controller="Products">Product List</a>
+  <hr />
+    <a asp-action="Index" asp-controller="Home">Exit</a>
+    <!-- Add more links or customize as needed -->
+</div>

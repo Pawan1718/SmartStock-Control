@@ -1,0 +1,95 @@
+﻿@model SmartInventory.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <h2>Welcome to SmartInventory</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Featured Products</h3>
+            <div class="card-deck">
+                @foreach (var product in Model.FeaturedProducts)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text">@product.Description</p>
+
+                            @if (product.Category != null)
+                            {
+                                <p class="card-text">Category: @product.Category.Name</p>
+                            }
+                            else
+                            {
+                                <p class="card-text">Category: Not specified</p>
+                            }
+
+                            <p class="card-text">Created on: @product.CreationDate.ToShortDateString()</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Latest Transactions</h3>
+            <table class="table table-striped latest-transactions-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Transaction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var transaction in Model.LatestTransactions)
+                    {
+                        <tr>
+                            <td>@transaction.Product.Name</td>
+                            <td>@transaction.Quantity</td>
+
+                            @if (transaction.TransactionType == "Stock In")
+                            {
+                                <td class="text-success">@transaction.TransactionType <i class="fa fa-arrow-down" aria-hidden="true"></i></td>
+                            }
+                            else if (transaction.TransactionType == "Stock Out")
+                            {
+                                <td class="text-danger">@transaction.TransactionType <i class="fa fa-arrow-up" aria-hidden="true"></i></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="col-md-6">
+                <h3>Stock Information</h3>
+
+                <div class="card mt-3 border-0 @((Model.RejectedStock > 10) ? "border-danger" : "border-success")">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Rejected Stock</h5>
+                        <p class="card-text">
+                            Quantity: <span class="fw-bolder @((Model.RejectedStock > 10) ? "text-danger" : "text-success")">@Model.RejectedStock</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card mt-3 border-0 @((Model.StockAvailable < 100) ? "border-danger" : "border-success")">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Stock Available</h5>
+                        <p class="card-text">
+                            Quantity: <span class="fw-bolder @((Model.StockAvailable < 100) ? "text-danger" : "text-success")">@Model.StockAvailable</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+             
+            </div>
+
+        </div>
+    </div>
+</div>

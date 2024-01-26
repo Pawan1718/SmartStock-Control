@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SmartInventory.Models.Product>
+
+@{
+    ViewData["Title"] = "Manage Products";
+}
+
+<h1>Manage Product</h1>
+
+<hr />
+<br />
+<div class="container">
+<div class="search-bar pb-3">
+        <input type="text" placeholder="Search products..." id="txtSearch">
+    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+<table class="table" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+           
+         
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model!=null && Model.Any() )
+        {
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => product.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => product.Name)
+                    </td>
+                 
+                        <td>
+                            <a asp-action="UpdateProducts" asp-route-id="@product.Id">Update</a> |
+                            <a asp-action="RemoveProducts" asp-route-id="@product.Id">Remove</a>
+                        </td>
+                </tr>
+            }
+        }
+        else
+        {
+           <tr>
+               <td>
+                   Products not available in Database!
+               </td>
+           </tr>
+        }
+
+    </tbody>
+</table>
+</div>

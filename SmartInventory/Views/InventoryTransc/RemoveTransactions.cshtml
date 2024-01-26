@@ -1,0 +1,66 @@
+﻿@model SmartInventory.Models.InventoryItem
+
+@{
+    ViewData["Title"] = "Remove Transactions";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>InventoryItem</h4>
+    <hr />
+    <div class="container">
+
+        <dl class="row">
+        <dt class="col-sm-2">
+            Transaction Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            Transaction Date
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+        <dt class="col-sm-2">
+            Reject
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.isRejected)
+        </dd>
+        <dt class="col-sm-2">
+            Reasone for Rejection
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReasonForRejection)
+        </dd>
+    </dl>
+
+    <form asp-action="RemoveTransactions">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Remove" class="btn btn-danger" /> |
+        <a asp-action="ManageTransactions">Back to Manage Transactions</a>
+    </form>
+</div>
+</div>

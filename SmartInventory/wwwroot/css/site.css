@@ -1,0 +1,139 @@
+/* Set base font size */
+html {
+    font-size: 14px;
+}
+
+/* Responsive font size for larger screens */
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Set minimum height for the HTML element */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Set bottom margin for the body element */
+body {
+    margin-bottom: 60px;
+
+}
+/*header*/
+
+/*footer*/
+footer.border-top.footer.text-muted {
+    background-color: #D8D9DA; /* Light gray background color */
+}
+/* Sidebar styles */
+.sidebar {
+    width: 190px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 676px;
+    overflow: auto;
+    margin-top:-16px;
+}
+
+    .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+        .sidebar a.active {
+            background-color: #D8D9DA;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+    .sidebar .submenu {
+        display: none;
+        padding-left: 16px; /* Adjust indentation for the submenu */
+    }
+
+        .sidebar a[href="#about"]:hover + .submenu,
+        .sidebar .submenu:hover {
+            display: block;
+        }
+
+/* Page content */
+div.content {
+    margin-left: 200px;
+    padding: 2px 16px;
+    height: 1000px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 85%;
+        height: auto;
+        position: relative;
+    }
+
+        .sidebar a {
+            float: left;
+        }
+
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+
+/*Home Page*/
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.card-body {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px;
+}
+
+.card-title {
+    color: #007bff; /* Blue title color */
+}
+
+.card-text {
+    color: #6c757d; /* Gray text color */
+}
+
+.latest-transactions-table {
+    background-color: #ffffff; /* White background for the transactions table */
+}
+
+.arrow-green {
+    color: green;
+}
+
+.arrow-red {
+    color: red;
+}

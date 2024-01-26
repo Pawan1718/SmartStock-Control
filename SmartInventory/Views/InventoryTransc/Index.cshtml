@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SmartInventory.Models.InventoryItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Stock Levels</h1>
+<hr />
+<div class="search-bar pb-3">
+    <input type="text" placeholder="Search categories..." id="txtSearch">
+    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Product Id
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Stock Qty.
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
