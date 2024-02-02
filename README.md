@@ -53,4 +53,3 @@ SmartStock-Control provides a user-friendly interface for managing access, categ
 
 Feel free to explore and contribute to the SmartStock-Control project on GitHub to enhance its features and capabilities. Your feedback and collaboration are highly appreciated!
 
-**Note:** Ensure to set up appropriate database connections and configurations for the project to function correctly. Refer to the project's documentation for detailed instructions on setup and configuration.
