@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using SmartInventory.Data;
 using SmartInventory.Models;
+using SmartInventory.ViewModels;
 
 namespace SmartInventory.Controllers
 {
@@ -23,40 +24,13 @@ namespace SmartInventory.Controllers
         {
             return View();
         }
-        public IActionResult StockIn()
-        {
-            _context.Inventories.Include("Product").ToList();
-
-            return View();
-        }
-
+      
         public IActionResult ManageTransactions()
         {
             var inventoryData = _context.Inventories.Include("Product").ToList();
             return View(inventoryData);
         }
-        public IActionResult StockTransactionList()
-        {
-            var inventoryData = _context.Inventories.Include("Product").ToList();
-            return View(inventoryData);
-        }
-        public IActionResult TransactionDetails(int? id)
-        {
-            if (id == null || _context.Inventories == null)
-            {
-                return NotFound();
-            }
-
-            var inventoryItem = _context.Inventories
-                .Include(i => i.Product)
-                .FirstOrDefault(m => m.Id == id);
-            if (inventoryItem == null)
-            {
-                return NotFound();
-            }
-
-            return View(inventoryItem);
-        }
+      
         public IActionResult AddTransactions()
         {
             LoadProducts();
@@ -112,8 +86,11 @@ namespace SmartInventory.Controllers
             LoadProducts();
             return View(model);
         }
-    
-            private void LoadProducts()
+
+        
+
+        [NonAction]
+        private void LoadProducts()
             {
               var product = _context.Products.ToList();
               ViewBag.Product = new SelectList(product, "Id", "Name");
@@ -175,7 +152,6 @@ namespace SmartInventory.Controllers
             LoadProducts();
             return View(model);
         }
-
 
 
 

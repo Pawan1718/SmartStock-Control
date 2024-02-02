@@ -18,7 +18,7 @@ namespace SmartInventory.Models
         public  int Quantity { get; set; }
 
         public decimal Price { get; set; }
-
+        [DataType(DataType.Date)]
         public DateTime TransactionDate { get; set; }
 
 
@@ -26,15 +26,13 @@ namespace SmartInventory.Models
 
 
         public bool isRejected { get; set; }
+        public int? RejectedQty { get; set; }
 
         public string? ReasonForRejection {  get; set; }
 
-        public string StockStatus
-        {
-            get
-            {
-                return Quantity <= 10 ? "Low Stock" : "Normal Stock";
-            }
-        }
+        public int? PO { get; set; }
+        public int? SO { get; set; }
+
+
     }
 }

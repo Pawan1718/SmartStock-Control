@@ -11,5 +11,7 @@ namespace SmartInventory.ViewModels
         public List<InventoryItem> LatestTransactions { get; set; }
         public int StockAvailable { get; internal set; }
         public int RejectedStock { get; internal set; }
+    
+
     }
 }

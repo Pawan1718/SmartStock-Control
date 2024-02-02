@@ -16,7 +16,7 @@ namespace SmartInventory.Models
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }
-
+        [DataType(DataType.Date)]
         public DateTime CreationDate { get; set; }
     }
 }

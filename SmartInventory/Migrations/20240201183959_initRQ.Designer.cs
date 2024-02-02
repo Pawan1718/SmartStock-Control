@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartInventory.Data;
 
@@ -11,9 +12,10 @@ using SmartInventory.Data;
 namespace SmartInventory.Migrations
 {
     [DbContext(typeof(imsDbContext))]
-    partial class imsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240201183959_initRQ")]
+    partial class initRQ
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,8 +40,9 @@ namespace SmartInventory.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("Mobile")
-                        .HasColumnType("bigint");
+                    b.Property<int?>("Mobile")
+                        .IsRequired()
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -84,9 +87,6 @@ namespace SmartInventory.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("PO")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -99,10 +99,7 @@ namespace SmartInventory.Migrations
                     b.Property<string>("ReasonForRejection")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RejectedQty")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SO")
+                    b.Property<int>("RejectedQty")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("TransactionDate")

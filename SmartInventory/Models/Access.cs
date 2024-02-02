@@ -19,8 +19,7 @@ namespace SmartInventory.Models
 
        
         [Required]
-        [RegularExpression(@"^[0-11]+$", ErrorMessage = "Mobile must contain only digits.")]
-        public int? Mobile { get; set; }
+        public long Mobile { get; set; }
 
 
         [Required]

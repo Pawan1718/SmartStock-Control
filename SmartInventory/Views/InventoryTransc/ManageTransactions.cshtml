@@ -4,74 +4,84 @@
     ViewData["Title"] = "ManageStocks";
 }
 
-<h1>Manage Stocks</h1>
+<h4>Manage Stocks View</h4>
 <hr />
-<div class="search-bar pb-3">
-    <input type="text" placeholder="Search categories..." id="txtSearch">
-    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+<br />
+<div class="container border">
+    <div class="search-bar pb-3">
+        <input type="text" placeholder="Search categories..." id="txtSearch">
+        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr class="bg-light">
+                <th>
+                    @Html.DisplayNameFor(model => model.PO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TransactionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RejectedQty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReasonForRejection)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TransactionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TransactionType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RejectedQty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReasonForRejection)
+                    </td>
+                    <td>
+                        <a asp-action="UpdateTransactions" asp-route-id="@item.Id">Update</a> |
+                        <a asp-action="RemoveTransactions" asp-route-id="@item.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransactionDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransactionType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.isRejected)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReasonForRejection)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductId)
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransactionType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isRejected)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReasonForRejection)
-            </td>
-            <td>
-                <a asp-action="UpdateTransactions" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="RemoveTransactions" asp-route-id="@item.Id">Remove</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

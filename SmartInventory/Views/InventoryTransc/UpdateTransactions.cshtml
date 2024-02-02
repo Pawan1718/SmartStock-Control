@@ -4,9 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<div class="container mt-5">
-    <h1 class="text-center">Update Transaction</h1>
-    <hr />
+<h4 >Update Transaction View</h4>
+<hr />
+<br />
+<div class="container border">
+   
 
     <form asp-action="UpdateTransactions" id="inventoryForm">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -67,6 +69,13 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="text-center mt-3">
+                                <div class="form-group">
+                                    <label asp-for="RejectedQty" class="control-label">Rejected Quantity</label>
+                                    <input asp-for="RejectedQty" class="form-control" />
+                                    <span asp-validation-for="RejectedQty" class="text-danger"></span>
+                                </div>
+                            </td>
                             <td colspan="2">
                                 <div class="form-group mt-3">
                                     <label asp-for="ReasonForRejection" class="control-label">Reason for Rejection</label>
@@ -89,14 +98,14 @@
 
         <div class="row mt-3">
             <div class="col-md-6">
-                <input type="submit" value="Update" class="btn btn-primary w-100" />
+                <input type="submit" value="Update" class="btn btn-primary " />
             </div>
         </div>
     </form>
 
     <div class="row mt-3">
         <div class="col-md-6">
-            <a asp-action="ManageTransactions" class="btn  w-100">Back to Manage Transactions</a>
+            <a asp-action="ManageTransactions">Manage Transc.</a>
         </div>
     </div>
 </div>
